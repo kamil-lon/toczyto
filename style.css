@@ -1,0 +1,33 @@
+body
+{
+    background-color: #190a18;
+    color: white;
+}
+
+#main
+{
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#header
+{
+    margin-top: 35px;
+    font-size: 85px;
+    text-align: left;
+    color: whitesmoke;
+    font-family: 'VT323', monospace;
+}
+
+#content
+{
+    min-height: 400px;
+}
+
+#footer
+{
+    text-align: center;
+    color: aqua;
+}
