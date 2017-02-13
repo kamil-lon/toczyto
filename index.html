@@ -9,6 +9,8 @@
     <meta name="keywords" content="gra,game,quiz,zagadki,łamigłówki,logiczne,krzyżówki,pytania,wiedza,rozum,iq">
     <meta name="author" content="Corleone">
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cousine:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bahiana" rel="stylesheet">
 </head>
 
 <body>
@@ -16,8 +18,47 @@
         <div id="header">
             To czy To?
         </div>
-        <div id="content">
+        <div id="menu">
+        <div class="option">Graj!</div>
+        <a href="index.html#jakgrac"><div class="option">Jak grać?</div></a>
+        <a href="index.html#oprojekcie"><div class="option">O projekcie</div></a>
+        <a href="index.html#dodajpytanie"><div class="option">Dodaj pytanie!</div></a>
+        <a href="index.html#kontakt"><div class="option">Kontakt</div></a>
+        <div style="clear: both;"></div>
         </div>
+        <div id="content">
+            <div class="chapter" id="jakgrac">
+            WYBIERZ JEDNĄ Z DWÓCH PODANYCH ODPOWIEDZI<br><br>
+            MASZ 8 SEKUND<br><br>
+            ZDOBYWAJ PUNKTY<br><br>
+            <a id="agraj" href="gra.php">GRAJ</a>
+            </div>
+            <div class="chapter" id="oprojekcie">
+            Serwis został stworzony dla czystej zabawy, z przyjemności, którą czerpię z tworzenia stron WWW :D<br><br><br>
+            Użyłem: HTML5 - CSS3 - JS - PHP - MySQL<br><br><br>
+            Projekt powstaje na potrzeby konkursu Daj Się Poznać 2017
+            </div>
+            <div class="chapter" id="dodajpytanie">
+            DODAJ PYTANIE<br><br>
+                <form name="dodawanie" action="dodawanie.php">
+                Treść pytania<br>
+                    <input type="text" name="pytanie"/><br>
+                Poprawna odpowiedź<br>
+                    <input type="text" name="pop_odp"/><br>
+                Druga odpowiedź<br>
+                    <input type="text" name="druga_odp"/><br>
+                Imię<br>
+                    <input type="text" name="imie"/><br>
+                E-mail<br>
+                    <input type="email" name="email"/>  <br>
+                </form>
+            </div>
+            <div class="chapter" id="kontakt">
+            KONTAKT<br><br><br>
+            kontakt@toczyto.pl<br><br>
+            facebook.com/toczyto<br><br>
+            
+            </div>
         <div id="footer">
             Wszelkie prawa zastrzeżone &copy 2017
         </div>
