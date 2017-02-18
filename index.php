@@ -1,3 +1,22 @@
+<?php
+try
+{
+    $polaczenie = new mysqli('localhost','root','','toczyto');
+    if($polaczenie->connect_errno!=0)
+    {
+        throw new Expection(mysqli_connect_errno());
+    }
+    else
+    {
+        $zapytanie = $polaczenie->query("SELECT * FROM pytania");
+        $ile = $zapytanie->num_rows;
+    }
+}
+catch(Expection $ex)
+{
+    echo "ERROR ".$ex;
+}
+?>
 <!DOCTYPE HTML>
 <html lang="pl">
     
@@ -16,21 +35,21 @@
 <body>
     <div id="main">
         <div id="header">
-            To czy To?
+            <a href="index.php">To czy To?</a>
         </div>
         <div id="menu">
         <a href="gra.php"><div class="option">Graj!</div></a>
-        <a href="index.html#jakgrac"><div class="option">Jak grać?</div></a>
-        <a href="index.html#oprojekcie"><div class="option">O projekcie</div></a>
-        <a href="index.html#dodajpytanie"><div class="option">Dodaj pytanie!</div></a>
-        <a href="index.html#kontakt"><div class="option">Kontakt</div></a>
+        <a href="index.php#jakgrac"><div class="option">Jak grać?</div></a>
+        <a href="index.php#oprojekcie"><div class="option">O projekcie</div></a>
+        <a href="index.php#dodajpytanie"><div class="option">Dodaj pytanie!</div></a>
+        <a href="index.php#kontakt"><div class="option">Kontakt</div></a>
         <div style="clear: both;"></div>
         </div>
         <div id="content">
             <div class="chapter" id="jakgrac">
+            W NASZEJ BAZIE ZNAJDUJE SIĘ JUŻ <?php echo $ile; ?> PYTAŃ!<br><br>
             WYBIERZ JEDNĄ Z DWÓCH PODANYCH ODPOWIEDZI<br><br>
             MASZ 8 SEKUND<br><br>
-            ZDOBYWAJ PUNKTY<br><br>
             <a id="agraj" href="gra.php">GRAJ</a>
             </div>
             <div class="chapter" id="oprojekcie">
@@ -40,17 +59,16 @@
             </div>
             <div class="chapter" id="dodajpytanie">
             DODAJ PYTANIE<br><br>
-                <form name="dodawanie" action="dodawanie.php">
+                <form name="dodawanie" action="dodawanie.php" class="dodawanie">
                 Treść pytania<br>
-                    <input type="text" name="pytanie"/><br>
+                    <textarea class="pole" name="pytanie" placeholder="Jakiego koloru jest czerwony maluch?"></textarea><br>
                 Poprawna odpowiedź<br>
-                    <input type="text" name="pop_odp"/><br>
+                    <input type="text" class="pole" name="pop_odp" placeholder="Czerwonego"/><br>
                 Druga odpowiedź<br>
-                    <input type="text" name="druga_odp"/><br>
+                    <input type="text" class="pole" name="druga_odp" placeholder="Słoń"/><br>
                 Imię<br>
-                    <input type="text" name="imie"/><br>
-                E-mail<br>
-                    <input type="email" name="email"/>  <br>
+                    <input type="text" class="pole" name="imie" placeholder="Staszek"/><br><br>
+                    <input type="submit" id="button" value="Wyślij">
                 </form>
             </div>
             <div class="chapter" id="kontakt">

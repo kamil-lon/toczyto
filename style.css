@@ -14,11 +14,17 @@ body
 
 #header
 {
-    margin-top: 25px;
+    margin-top: 15px;
     font-size: 85px;
     text-align: left;
     color: whitesmoke;
     font-family: 'VT323', monospace;
+}
+
+a
+{
+    color: white;
+    text-decoration: none;
 }
 
 #menu
@@ -37,11 +43,6 @@ body
     background-color: firebrick;
     font-family: 'Cousine', monospace;
     font-size: 18px;
-}
-
-a
-{
-    color: white;
 }
 
 .option:hover
@@ -77,7 +78,7 @@ a
 .odp
 {
     float: left;
-    width: 410px;
+    width: 366px;
     font-size: 45px;
     font-family: 'Bahiana', cursive;
     margin-top: 70px;
@@ -85,6 +86,7 @@ a
     background-color: #190a18;
     padding: 20px;
     color: white;
+    height: 50px;
 }
 
 .odp:hover
@@ -92,6 +94,14 @@ a
     cursor: pointer;
     font-size: 46px;
 }
+
+.odn
+{
+    display: block;
+    height: 50px;
+    width: 366px;
+}
+
 
 #czy
 {
@@ -120,6 +130,30 @@ a
     
 }
 
+.dodawanie
+{
+    font-size: 33px;
+    width: 300px;
+    background-color: #381635;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 3px solid #a0599b;
+    padding: 15px;
+}
+
+.pole
+{
+    width: 240px;
+    height: 45px;
+}
+
+#button
+{
+    width: 100px;
+    height: 50px;
+}
+
 #agraj
 {
     font-size: 100px;
@@ -131,5 +165,5 @@ a
 {
     text-align: center;
     color: antiquewhite;
-    font-size: 20px;
+    font-size: 15px;
 }
