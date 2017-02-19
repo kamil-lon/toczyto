@@ -1,10 +1,11 @@
+
 <?php
 session_start();
 
 if(!isset($_SESSION['nr']))
 {
    $_SESSION['pierwsze'] = true;
-   header ("Location: wylosuj_nowy_nr.php");
+   header ("Location: sprawdz_i_wylosuj_nowy_nr.php");
 }
 else
 {
@@ -13,14 +14,15 @@ else
     $odpa = $_SESSION['odpa'];
     $odpb = $_SESSION['odpb'];
     $odppop = $_SESSION['odppop'];
+
     $punkty = $_SESSION['punkty'];
     
-    if(isset($_SESSION['koniec']))
-    {
-        $odpa = '<a href="https://vimeo.com/143299033">NAGRODA</a>';
-        $odpb = '<a href="https://vimeo.com/143299033">SPECJALNA</a>';
-        unset($_SESSION['koniec']);
-    }
+    if($_SESSION['zycia']==2)
+        $zycia = '♥♥';
+    if($_SESSION['zycia']==1)
+        $zycia = '♥';
+    if($_SESSION['zycia']==0)
+        $zycia = 'END';
 }
 ?>
 <!DOCTYPE HTML>
@@ -37,26 +39,12 @@ else
     <link href="https://fonts.googleapis.com/css?family=Cousine:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bahiana" rel="stylesheet">
     <script type="text/javascript">
-
-        function koniec_gry(napis)
-        {
-            document.getElementById('zegar').innerHTML='the end';
-            document.getElementById('pytanie').innerHTML = napis;
-            document.getElementById('pytanie').style = 'border: 2px solid red;';
-
-
-            document.getElementById('odpa').style = 'border: 2px solid red;';   
-            document.getElementById('odpa').innerHTML = 'od nowa';   
-            document.getElementById('odpa').addEventListener("click",function(){window.location = "gra.php";},false);
-
-            document.getElementById('odpb').style = 'border: 2px solid red;';   
-            document.getElementById('odpb').innerHTML = 'dodaj pytanie';   
-            document.getElementById('odpb').addEventListener("click",function(){window.location = "index.php#dodajpytanie";},false);
-        }
-        
-        function odliczanie()
+    function odliczanie()
         {
             var start = document.getElementById('zegar').innerHTML;
+            var tresc = document.getElementById('pytanie').innerHTML.trim();
+            if(tresc!='UPS, POMYŁKA.. KONIEC GRY')
+            {
             if(start=='start')
                 document.getElementById('zegar').innerHTML = 8;
             else
@@ -68,43 +56,53 @@ else
                     document.getElementById('zegar').innerHTML=sekunda;
                 }
                 else if(sekunda==0)
-                {       
-                        koniec_gry('koniec czasu...i gry');
+                {   
+                    document.getElementById('zegar').innerHTML = '0';
+                    
+                    document.getElementById('odpa').value = 'od nowa';
+                    document.getElementById('odpb').value = 'dodaj pytanie';
+                    document.getElementById('pytanie').innerHTML = 'ups..koniec czasu';
+                    
+                    document.getElementById('odpa').style = 'border: 2px solid red;';
+                    document.getElementById('odpb').style = 'border: 2px solid red;';
+                    document.getElementById('pytanie').style = 'border: 2px solid red;';
                 }
             }
-            
             setTimeout("odliczanie()",1000);
-        }
-        
-        function sprawdz(x)
-        {
-            var odpowiedz = document.getElementById(x).innerHTML;
-            var zycia = document.getElementById('zycia').innerHTML;
-            if(odpowiedz!='od nowa' && odpowiedz!='dodaj pytanie')
-            {
-            odpowiedz = odpowiedz.trim();
-            var odppop = '<?php echo $odppop; ?>';
-            odppop = odppop.trim();
-            if(odpowiedz==odppop) 
-            {
-                document.getElementById(x).style = 'border: 2px solid green;';
-                document.location="wylosuj_nowy_nr.php";
             }
             else
-                {
-                document.getElementById(x).style = 'border: 2px solid red;';
-                setTimeout("koniec_gry('ups..pomyłka. koniec gry')",300);
-                }
-            
-            }
+                document.getElementById('zegar').innerHTML = 0;
         }
-
-        function load()
+        
+        
+    function sprawdz(x)
+    {
+        var odpowiedz = document.getElementById(x).value;
+        if(odpowiedz!='od nowa' && odpowiedz!='dodaj pytanie')
         {
-            odliczanie();
-            document.getElementById('odpa').addEventListener("click",function(){sprawdz('odpa');},false);
-            document.getElementById('odpb').addEventListener("click",function(){sprawdz('odpb');},false);
+        odpowiedz = odpowiedz.trim();
+        var odppop = '<?php echo $odppop; ?>';
+        odppop = odppop.trim();
+        if(odpowiedz==odppop) 
+        {
+            document.getElementById(x).style = 'border: 2px solid green;';
+            document.getElementById('punkty').style = 'color: green;';
         }
+        else
+            {
+            document.getElementById(x).style = 'border: 2px solid red;';
+            document.getElementById('zycia').style = 'color: red;;';
+            }
+        
+        }
+    }    
+        
+    function load()
+    {
+        odliczanie();
+        document.getElementById('odpa').addEventListener("click",function(){sprawdz('odpa');},false);
+        document.getElementById('odpb').addEventListener("click",function(){sprawdz('odpb');},false)
+    }
         
     </script>
 </head>
@@ -123,25 +121,34 @@ else
         <div style="clear: both;"></div>
         </div>
         <div id="content">
-            <div class="statystyki" id="punkty"><?php echo $punkty; ?></div>
-            <div class="statystyki" id="zegar">start</div>
-            <div class="statystyki" id="zycia" style="color: firebrick;">♥♥♥</div>
+            <div class="statystyki" id='punkty'><?php echo $punkty; ?></div>
+            <div class="statystyki" id='zegar'>start</div>
+            <div class="statystyki" style="color: firebrick;" id='zycia'><?php echo $zycia; ?></div>
             <div style="clear:both;"></div>
             <div id="pytanie" <?php
-                    if(isset($_SESSION['koniec'])) echo 'style="border: 2px solid gold;"';
+                    if(isset($_SESSION['graj'])) echo 'style="border: 3px solid red;"';
                                 ?>><?php echo $tresc; ?>
             </div>
-
-            <div class="odp" id="odpa" <?php if(isset($_SESSION['koniec'])) echo 'style="border: 2px solid gold;"'; ?>>
-            <?php echo $odpa; ?>
-            </div>
-            
+        <form action="sprawdz_i_wylosuj_nowy_nr.php" method="post">
+            <input type="submit" name="a" class="odp" id="odpa" 
+                <?php if(isset($_SESSION['graj'])) echo 'style="border: 2px solid red;"'; ?> 
+                   value="<?php 
+                          if(isset($_SESSION['graj']))
+                          {
+                            $odpa = $_SESSION['graj'];
+                            unset($_SESSION['graj']);
+                          }echo $odpa; ?>"
+            >
             <div id="czy">czy</div>
-            
-             <div class="odp" id="odpb" <?php if(isset($_SESSION['koniec'])) echo 'style="border: 2px solid gold;"'; ?>>
-            <?php echo $odpb; ?>
-            </div>
-
+            <input type="submit" name="b" class="odp" id="odpb"
+            <?php if(isset($_SESSION['dodaj'])) echo 'style="border: 3px solid red;"'; ?> 
+            value="<?php
+                   if(isset($_SESSION['dodaj']))
+                   {
+                       $odpb = $_SESSION['dodaj'];
+                       unset($_SESSION['dodaj']);
+                   }echo $odpb; ?>">
+        </form>
             <div style="clear: both;"></div>
         </div>
         <div id="footer">
@@ -151,6 +158,7 @@ else
 </body>
 </html>
 <?php
+
 unset($_SESSION['nr']);
 unset($_SESSION['tresc']);
 unset($_SESSION['odpa']);

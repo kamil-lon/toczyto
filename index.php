@@ -55,7 +55,6 @@ catch(Expection $ex)
             <div class="chapter" id="oprojekcie">
             Serwis został stworzony dla czystej zabawy, z przyjemności, którą czerpię z tworzenia stron WWW :D<br><br><br>
             Użyłem: HTML5 - CSS3 - JS - PHP - MySQL<br><br><br>
-            Projekt powstaje na potrzeby konkursu Daj Się Poznać 2017
             </div>
             <div class="chapter" id="dodajpytanie">
             DODAJ PYTANIE<br><br>
