@@ -63,7 +63,7 @@ a
 
 #content
 {
-    min-height: 500px;
+    min-height: 461px;
     margin-top: 30px;
 }
 
@@ -131,28 +131,64 @@ a
     
 }
 
+.logo
+{
+    margin-left: 15px;
+    float: left;
+    margin-top: 30px;
+}
+
 .dodawanie
 {
     font-size: 33px;
-    width: 300px;
+    width: 800px;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 15px;
     border-radius: 20px;
     border: 3px solid #381635;
-    padding: 15px;
+    padding: 18px;
+    padding-left: 50px;
 }
 
 .pole
 {
-    width: 240px;
-    height: 45px;
-    border: 3px solid #381635;
+    width: 640px;
+    height: 40px;
+}
+
+.pole:focus,.pole2:focus
+{
+    border: 3px solid darksalmon;
+}
+
+.pole2
+{
+    width: 262px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 #button
 {
     width: 100px;
     height: 50px;
+    border-radius: 10px;
+    background-color: #381635;
+    border: 3px solid #381635;
+    color: darksalmon;
+    font-size: 30px;
+    font-family: 'Bahiana', cursive;
+}
+
+#button:hover
+{
+    cursor: pointer;
+    background-color: darksalmon;
+    border-color: darksalmon;
+    color: #381635;
+    
 }
 
 #agraj
@@ -160,6 +196,11 @@ a
     font-size: 100px;
     text-decoration: none;
     color: darksalmon;
+}
+
+#agraj:hover
+{
+    font-size: 130px;
 }
 
 #footer

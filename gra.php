@@ -112,14 +112,6 @@ else
         <div id="header">
             <a href="index.php">To czy To?</a>
         </div>
-        <div id="menu">
-        <a href="gra.php"><div class="option">Graj!</div></a>
-        <a href="index.php#jakgrac"><div class="option">Jak grać?</div></a>
-        <a href="index.php#oprojekcie"><div class="option">O projekcie</div></a>
-        <a href="index.php#dodajpytanie"><div class="option">Dodaj pytanie!</div></a>
-        <a href="index.php#kontakt"><div class="option">Kontakt</div></a>
-        <div style="clear: both;"></div>
-        </div>
         <div id="content">
             <div class="statystyki" id='punkty'><?php echo $punkty; ?></div>
             <div class="statystyki" id='zegar'>start</div>
