@@ -14,20 +14,198 @@ body
 
 #header
 {
-    margin-top: 35px;
+    margin-top: 15px;
     font-size: 85px;
     text-align: left;
     color: whitesmoke;
     font-family: 'VT323', monospace;
 }
 
+a
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    font-size: 87px;
+}
+
+#menu
+{
+    margin-top: 15px;
+    height: 50px;
+}
+
+.option
+{
+    float: left;
+    height: 30px;
+    width: 160px;
+    padding: 10px;
+    text-align: center;
+    background-color: firebrick;
+    font-family: 'Cousine', monospace;
+    font-size: 18px;
+}
+
+a
+{
+    color: white;
+}
+
+.option:hover
+{
+    background-color: #c14e4e;
+    font-size: 19px;
+    cursor: pointer;
+}
+
 #content
 {
-    min-height: 400px;
+    min-height: 461px;
+    margin-top: 30px;
+}
+
+.statystyki
+{
+    float: left;
+    font-size: 100px;
+    font-family: 'Bahiana', cursive;
+    width: 270px;
+    padding: 15px;
+}
+
+#pytanie
+{
+    font-size: 45px;
+    font-family: 'Bahiana', cursive;
+    border: 3px solid white;
+    padding: 10px;
+}
+
+.odp
+{
+    float: left;
+    width: 410px;
+    height: 100px;
+    font-size: 45px;
+    font-family: 'Bahiana', cursive;
+    margin-top: 70px;
+    border: 2px solid white;
+    background-color: #190a18;
+    padding: 20px;
+    color: white;
+}
+
+.odp:hover
+{
+    cursor: pointer;
+    font-size: 46px;
+}
+
+#czy
+{
+    font-size: 45px;
+    float: left;
+    margin-top: 100px;
+    font-family: 'VT323', monospace;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 50px;
+    text-align: center;
+}
+
+.chapter
+{
+    font-size: 57px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Bahiana', cursive;
+    color: darksalmon;
+    text-align: center;
+    min-height: 650px;
+    padding: 20px;
+    border-bottom: 3px solid white;
+    
+}
+
+.logo
+{
+    margin-left: 15px;
+    float: left;
+    margin-top: 30px;
+}
+
+.dodawanie
+{
+    font-size: 33px;
+    width: 800px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border-radius: 20px;
+    border: 3px solid #381635;
+    padding: 18px;
+    padding-left: 50px;
+}
+
+.pole
+{
+    width: 640px;
+    height: 40px;
+}
+
+.pole:focus,.pole2:focus
+{
+    border: 3px solid darksalmon;
+}
+
+.pole2
+{
+    width: 262px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+#button
+{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #381635;
+    border: 3px solid #381635;
+    color: darksalmon;
+    font-size: 30px;
+    font-family: 'Bahiana', cursive;
+}
+
+#button:hover
+{
+    cursor: pointer;
+    background-color: darksalmon;
+    border-color: darksalmon;
+    color: #381635;
+    
+}
+
+#agraj
+{
+    font-size: 100px;
+    text-decoration: none;
+    color: darksalmon;
+}
+
+#agraj:hover
+{
+    font-size: 130px;
 }
 
 #footer
 {
     text-align: center;
-    color: aqua;
+    color: antiquewhite;
+    font-size: 15px;
 }
