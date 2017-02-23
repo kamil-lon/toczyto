@@ -16,12 +16,12 @@ if(isset($_POST['pytanie']))
         $to = 'dodaj-pytanie@to-czy-to.pl';
         $email = $_POST['email'];
         $subject = 'Nowe pytanie od kochanego użytkownika';
-        $message = 'Pytanie: '.$tresc.'\n Odpowiedź poprawna: '.$odppop.'\n Druga: '.$druga_odp.'\n\n\n'.$imie;
-        $headers = 'From: '.$email.'\r\n'.'Reply-To'.$email.'\r\n'.'X-Mailer: PHP/'.phpversion();
+        $message = 'Pytanie: '.$tresc."\n Odpowiedź poprawna: ".$odppop."\n Druga: ".$druga_odp."\n \n \n".$imie;
+        $headers = "From: $email\r\n"."Reply-To: $email\r\n"."X-Mailer: PHP/ ".phpversion()."\r\n".'Content-Type: text/html; charset=UTF-8;';
 
         $subject_r = 'Dziękuję za pytanie!';
         $message_r = 'Dziękuję za pytanie kochany użytkowniku! :)';
-        $headers_r = 'From: dodaj-pytanie@to-czy-to.pl'.'\r\n'.'Reply-To: kontakt@to-czy-to.pl.'.'\r\n'.'X-Mailer: PHP/'.phpversion();
+        $headers_r = "From: dodaj-pytanie@to-czy-to.pl\r\n"."Reply-To: kontakt@to-czy-to.pl\r\n"."X-Mailer: PHP/".phpversion()."\r\n"."Content-Type: text/html; charset=UTF-8";
 
         mail($to,$subject,$message,$headers);
         mail($email,$subject_r,$message_r,$headers_r);

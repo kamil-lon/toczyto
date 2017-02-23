@@ -38,6 +38,7 @@ else
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cousine:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bahiana" rel="stylesheet">
+    <link rel="icon" type="image/png" href="loga/favicon.png">
     <script type="text/javascript">
     function odliczanie()
         {
