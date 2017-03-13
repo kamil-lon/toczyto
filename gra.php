@@ -46,30 +46,30 @@ else
             var tresc = document.getElementById('pytanie').innerHTML.trim();
             if(tresc!='UPS, POMYŁKA.. KONIEC GRY')
             {
-            if(start=='start')
-                document.getElementById('zegar').innerHTML = 8;
-            else
-            {
-                var sekunda = document.getElementById('zegar').innerHTML;
-                sekunda--;
-                if(sekunda>0)
-                {
-                    document.getElementById('zegar').innerHTML=sekunda;
-                }
-                else if(sekunda==0)
-                {   
-                    document.getElementById('zegar').innerHTML = '0';
-                    
-                    document.getElementById('odpa').value = 'od nowa';
-                    document.getElementById('odpb').value = 'dodaj pytanie';
-                    document.getElementById('pytanie').innerHTML = 'ups..koniec czasu';
-                    
-                    document.getElementById('odpa').style = 'border: 2px solid red;';
-                    document.getElementById('odpb').style = 'border: 2px solid red;';
-                    document.getElementById('pytanie').style = 'border: 2px solid red;';
-                }
-            }
-            setTimeout("odliczanie()",1000);
+													if(start=='9')
+																	document.getElementById('zegar').innerHTML = 8;
+													else
+													{
+																	var sekunda = document.getElementById('zegar').innerHTML;
+																	sekunda--;
+																	if(sekunda>0)
+																	{
+																					document.getElementById('zegar').innerHTML=sekunda;
+																	}
+																	else if(sekunda==0)
+																	{   
+																					document.getElementById('zegar').innerHTML = '0';
+
+																					document.getElementById('odpa').value = 'od nowa';
+																					document.getElementById('odpb').value = 'dodaj pytanie';
+																					document.getElementById('pytanie').innerHTML = 'ups..koniec czasu';
+
+																					document.getElementById('odpa').style = 'border: 2px solid red;';
+																					document.getElementById('odpb').style = 'border: 2px solid red;';
+																					document.getElementById('pytanie').style = 'border: 2px solid red;';
+																	}
+													}
+													setTimeout("odliczanie()",1000);
             }
             else
                 document.getElementById('zegar').innerHTML = 0;
@@ -88,12 +88,13 @@ else
         {
             document.getElementById(x).style = 'border: 2px solid green;';
             document.getElementById('punkty').style = 'color: green;';
+												
         }
         else
-            {
+        {
             document.getElementById(x).style = 'border: 2px solid red;';
-            document.getElementById('zycia').style = 'color: red;;';
-            }
+            document.getElementById('zycia').style = 'color: red;';
+        }
         
         }
     }    
@@ -111,15 +112,15 @@ else
 <body onload="load();">
     <div id="main">
         <div id="header">
-            <a href="index.php">To czy To?</a>
+            <a href="index.php" class="aheader">To czy To?</a>
         </div>
         <div id="content">
             <div class="statystyki" id='punkty'><?php echo $punkty; ?></div>
-            <div class="statystyki" id='zegar'>start</div>
+            <div class="statystyki" id='zegar'>9</div>
             <div class="statystyki" style="color: firebrick;" id='zycia'><?php echo $zycia; ?></div>
             <div style="clear:both;"></div>
             <div id="pytanie" <?php
-                    if(isset($_SESSION['graj'])) echo 'style="border: 3px solid red;"';
+                    if(isset($_SESSION['graj'])) echo 'style="border: 2px solid red;"';
                                 ?>><?php echo $tresc; ?>
             </div>
         <form action="sprawdz_i_wylosuj_nowy_nr.php" method="post">
@@ -134,7 +135,7 @@ else
             >
             <div id="czy">czy</div>
             <input type="submit" name="b" class="odp" id="odpb"
-            <?php if(isset($_SESSION['dodaj'])) echo 'style="border: 3px solid red;"'; ?> 
+            <?php if(isset($_SESSION['dodaj'])) echo 'style="border: 2px solid red;"'; ?> 
             value="<?php
                    if(isset($_SESSION['dodaj']))
                    {

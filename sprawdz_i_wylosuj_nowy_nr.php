@@ -69,6 +69,7 @@ function wylosuj()
                 $_SESSION['odpb'] = $rezultat['odpb'];
         
                 $_SESSION['odppop'] = $rezultat['odppop'];
+									usleep(300000);
                 header ("Location: gra.php");
         }
 

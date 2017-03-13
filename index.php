@@ -37,7 +37,7 @@ catch(Expection $ex)
 <body>
     <div id="main">
         <div id="header">
-            <a href="index.php">To czy To?</a>
+            <a href="index.php" class="aheader">To czy To?</a>
         </div>
         <div id="menu">
         <a href="gra.php"><div class="option">Graj!</div></a>
